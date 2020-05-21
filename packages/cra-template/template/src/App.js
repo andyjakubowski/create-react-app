@@ -10,6 +10,12 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <p>
+          Raccoon logo credit:{' '}
+          <a href="https://thenounproject.com/term/raccoon/2781328">
+            Millennials, ID at The Noun Project
+          </a>
+        </p>
         <a
           className="App-link"
           href="https://reactjs.org"
