@@ -688,13 +688,12 @@ module.exports = function (webpackEnv) {
       // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
       // You can remove this if you don't use Moment.js:
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-      // Generate a service worker script that will precache, and keep up to date,
-      // the HTML & assets that are part of the webpack build.
-      isEnvProduction &&
-        new WorkboxWebpackPlugin.InjectManifest({
-          swSrc: paths.swSrc,
-          exclude: [/\.map$/, /asset-manifest\.json$/],
-        }),
+      // Generate a list of URLs to precache, and add that precache manifest
+      // to an existing service worker file
+      new WorkboxWebpackPlugin.InjectManifest({
+        swSrc: paths.swSrc,
+        exclude: [/\.map$/, /asset-manifest\.json$/],
+      }),
       // TypeScript type checking
       useTypeScript &&
         new ForkTsCheckerWebpackPlugin({
